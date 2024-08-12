@@ -1,0 +1,139 @@
+<div class="container-fluid mb-2 main">
+  <div class="row" *ngIf="!isSubmitted">
+    <div class="col-lg-3 col-md-12 mb-3">
+      <mat-card class="p-3 shadow-lg rounded">
+        <mat-card-header>
+          <h1 class="h5"><b>Instructions</b></h1>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider class="mb-3"></mat-divider>
+          <p>1. You have to attempt all questions.</p>
+          <p>2. You can't go back to previous questions.</p>
+          <p>3. You can't submit the quiz before <b>{{questions.length}}:00</b></p>
+          <p>4. You can't submit the quiz after time.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-3 content-container">
+      <div class="content">
+        <mat-card class="mb-2 p-3 shadow-lg rounded">
+          <mat-card-content>
+            <h1 class="h4">Ongoing Quiz: <b>{{title}}</b></h1>
+          </mat-card-content>
+        </mat-card>
+
+        <ng-container *ngFor="let c of questions; let i = index">
+          <mat-card class="mb-1 p-3 shadow rounded">
+            <div class="container-fluid">
+              <p><b>Q{{i+1}}:</b><span class="ms-2">{{c.content}}</span></p>
+              <mat-divider class="mb-3"></mat-divider>
+              <div class="row mb-3">
+                <div class="col-12 col-sm-6">
+                  <input type="radio" [name]="'question'+i" [value]="c.option1" [(ngModel)]="c.givenAnswer">
+                  <span class="ms-2">{{c.option1}}</span>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="radio" [name]="'question'+i" [value]="c.option2" [(ngModel)]="c.givenAnswer">
+                  <span class="ms-2">{{c.option2}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6">
+                  <input type="radio" [name]="'question'+i" [value]="c.option3" [(ngModel)]="c.givenAnswer">
+                  <span class="ms-2">{{c.option3}}</span>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="radio" [name]="'question'+i" [value]="c.option4" [(ngModel)]="c.givenAnswer">
+                  <span class="ms-2">{{c.option4}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-12 mb-3">
+      <mat-card class="p-3 shadow-lg rounded">
+        <mat-card-header>
+          <mat-card-title>
+            <h2 class="h5"><b>Progress</b></h2>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>Quiz will be submitted automatically at 00:00</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="mb-2">
+          <p class="text-center">{{getFormattedTime()}}</p>
+          <mat-spinner color="warn" mode="determinate" class="m-auto"
+            [value]="(timer/(this.questions.length*2*60))*100"></mat-spinner>
+        </mat-card-content>
+        <mat-card-footer>
+          <div class="container text-center my-2">
+            <a class="w-100" mat-raised-button color="primary" [disabled]="isDisabled" (click)="submitQuiz()">
+              Submit Quiz</a>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row mt-2" *ngIf="isSubmitted">
+    <div class="col-md-8 offset-md-2">
+      <mat-card class="mb-2 p-3 shadow-lg rounded">
+        <mat-card-content>
+          <h1 class="h4">Quiz Submitted: <b>{{title}}</b></h1>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="p-3 text-center mb-2 shadow-lg rounded">
+        <mat-card-content>
+          <h1 class="h4">Result</h1>
+          <h2 class="h5">Total Questions: {{questions.length}}</h2>
+          <h2 class="h5">Correct Answers: {{result.correct}}</h2>
+          <h2 class="h5">Attempted: {{result.attempt}}</h2>
+          <h2 class="h5">Score: {{(result.score*100)/questions[0].quiz.maxMarks}}%</h2>
+        </mat-card-content>
+        <div class="text-center mt-3">
+          <button class="me-2" mat-raised-button color="primary" (click)="print()">Print Result</button>
+          <button mat-raised-button [routerLink]="'/user/dashboard'">Back to home</button>
+        </div>
+      </mat-card>
+
+      <ng-container *ngFor="let c of questions; let i = index">
+        <mat-card class="mb-1 py-3 px-5 shadow-lg rounded"
+          [ngStyle]="{'border': evaluations[i] === null ? 'none' : (evaluations[i] ? '2px solid green' : '2px solid red')}">
+          <div class="container-fluid p-2">
+            <p><b>Q{{i+1}}:</b><span class="ms-2">{{c.content}}</span></p>
+            <mat-divider class="mb-2"></mat-divider>
+            <div class="row mb-2">
+              <div class="col-12 col-sm-6">
+                <input type="radio" [name]="'question'+i" [value]="c.option1" [(ngModel)]="c.givenAnswer" disabled>
+                <span class="ms-2">{{c.option1}}</span>
+              </div>
+              <div class="col-12 col-sm-6">
+                <input type="radio" [name]="'question'+i" [value]="c.option2" [(ngModel)]="c.givenAnswer" disabled>
+                <span class="ms-2">{{c.option2}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <input type="radio" [name]="'question'+i" [value]="c.option3" [(ngModel)]="c.givenAnswer" disabled>
+                <span class="ms-2">{{c.option3}}</span>
+              </div>
+              <div class="col-12 col-sm-6">
+                <input type="radio" [name]="'question'+i" [value]="c.option4" [(ngModel)]="c.givenAnswer" disabled>
+                <span class="ms-2">{{c.option4}}</span>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <span *ngIf="evaluations[i]" class="text-success">Correct</span>
+              <span *ngIf="!evaluations[i] && evaluations[i]!=null" class="text-danger">Incorrect</span>
+              <span *ngIf="evaluations[i]==null" class="text-info">Not attempted</span>
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

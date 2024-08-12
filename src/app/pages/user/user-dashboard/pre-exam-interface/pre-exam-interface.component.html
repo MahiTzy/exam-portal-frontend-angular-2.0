@@ -1,0 +1,23 @@
+<mat-card class="pre-exam-card">
+  <mat-card-header>
+    <mat-card-title><b>{{ quiz.title }}</b></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="text-muted">{{ quiz.description }}</p>
+    <p><strong>Max Marks:</strong> {{ quiz.maxMarks }}</p>
+    <p><strong>Number of Questions:</strong> {{ quiz.numberOfQuestions }}</p>
+    <div>
+      <p><strong>Instructions:</strong></p>
+      <ul>
+        <li>Read all questions carefully.</li>
+        <li>Do not use any electronic devices.</li>
+        <li>Manage your time efficiently.</li>
+        <li>Submit your answers before the time limit.</li>
+        <li>Ensure you have an internet connection throughout the exam.</li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" [routerLink]="'/exam/start-exam/'+qid+'/'+title">Start Exam</button>
+  </mat-card-actions>
+</mat-card>

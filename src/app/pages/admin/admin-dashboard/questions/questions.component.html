@@ -1,0 +1,42 @@
+<div *ngIf="questions && questions.length; else noQuestions">
+  <mat-card *ngFor="let c of questions; let i = index" class="mb-1">
+    <mat-card-content>
+      <p><b>Q{{i+1}}:</b><span class="ms-2">{{c.content}}</span></p>
+      <div class="row">
+        <div class="col-md-6">
+          <p><b>Option 1:</b><span> {{c.option1}}</span></p>
+        </div>
+        <div class="col-md-6">
+          <p><b>Option 2:</b><span> {{c.option2}}</span></p>
+        </div>
+        <div class="col-md-6">
+          <p><b>Option 3:</b><span> {{c.option3}}</span></p>
+        </div>
+        <div class="col-md-6">
+          <p><b>Option 4:</b><span> {{c.option4}}</span></p>
+        </div>
+      </div>
+      <mat-divider mat-inset></mat-divider>
+      <p><b>Correct Answer:</b><span> {{c.answer}}</span></p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button class="me-2" mat-raised-button [routerLink]="'/admin/dashboard/update-question/'+c.quesId">Edit
+      </button>
+      <button mat-raised-button color="warn" (click)="deleteQuestion(c.quesId)">Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noQuestions>
+  <mat-card class="mb-1">
+    <mat-card-content>
+      <h1>No questions found.</h1>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<div class="container text-center mt-2">
+  <a mat-raised-button color="primary" [routerLink]="'/admin/dashboard/questions/'+qid+'/'+title+'/add-question'">Add
+    New Question</a>
+</div>

@@ -1,0 +1,26 @@
+<div *ngIf="quizResultsWithDetails && quizResultsWithDetails.length; else noDetails;">
+  @for (qr of quizResultsWithDetails; track qr) {
+  <mat-card class="mb-1">
+    <mat-card-header class="mb-2">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="mb-2">{{qr.quizDetails.title}}</mat-card-title>
+      <mat-card-subtitle>Submitted At: {{qr.submittedAt}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">M.M. {{qr.quizDetails.maxMarks}}</button>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">Marks obtained: {{(qr.score*100)/qr.quizDetails.maxMarks}}%</button>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">Total questions: {{qr.quizDetails.numberOfQuestions}}</button>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">Questions attempted: {{qr.attempted}}</button>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">Correct answers: {{qr.correct}}</button>
+      <button class="me-2 mb-2 text-black" mat-raised-button disabled="">Incorrect answers: {{qr.wrong}}</button>
+    </mat-card-content>
+  </mat-card>
+  }
+  </div>
+
+  <ng-template #noDetails>
+    <mat-card appearance="outlined" class="mb-1">
+      <mat-card-content>
+        <h1>No quiz results found.</h1>
+      </mat-card-content>
+    </mat-card>

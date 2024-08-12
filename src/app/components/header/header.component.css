@@ -1,0 +1,26 @@
+.masthead {
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/img/joanna-kosinska-1_CMoFsPfso-unsplash-min.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  filter: brightness(90%); /* Example filter effect */
+  z-index: 1;
+}
+
+.masthead .intro-body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white; /* Adjust text color for contrast */
+}

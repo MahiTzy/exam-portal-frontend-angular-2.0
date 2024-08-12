@@ -1,0 +1,27 @@
+<ng-container *ngIf="quizAttempts && quizAttempts.length > 0; else noAttempts">
+  <ng-container *ngFor="let qr of quizAttempts">
+    <mat-card>
+      <mat-card-header class="mb-2">
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="mb-2">{{qr.username}}</mat-card-title>
+        <mat-card-subtitle>Submission Time & Date: {{qr.submittedAt | date:'short'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <button class="me-2 mb-2 text-black" disabled="" mat-flat-button>M.M. {{qr.maxMarks}}</button>
+        <button class="me-2 mb-2 text-black" disabled="" mat-flat-button>Marks obtained: {{(qr.score * 100) / qr.maxMarks |
+          number:'1.0-2'}}%</button>
+        <button class="me-2 mb-2 text-black" disabled="" mat-flat-button>Questions attempted: {{qr.attempted}}</button>
+        <button class="me-2 mb-2 text-black" disabled="" mat-flat-button>Correct answers: {{qr.correct}}</button>
+        <button class="me-2 mb-2 text-black" disabled="" mat-flat-button>Incorrect answers: {{qr.wrong}}</button>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</ng-container>
+
+<ng-template #noAttempts>
+  <mat-card>
+    <mat-card-header>
+      <h1>No recent attempts found!</h1>
+    </mat-card-header>
+  </mat-card>
+</ng-template>

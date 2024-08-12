@@ -1,0 +1,22 @@
+<app-admin-nav></app-admin-nav>
+<main id="main" class="main">
+
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <div class="pagetitle">
+    <h1>{{title}}</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a>Home</a></li>
+        <li class="breadcrumb-item active">{{title}}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section dashboard">
+    <router-outlet></router-outlet>
+  </section>
+
+</main><!-- End #main -->
+
+<app-admin-footer></app-admin-footer>

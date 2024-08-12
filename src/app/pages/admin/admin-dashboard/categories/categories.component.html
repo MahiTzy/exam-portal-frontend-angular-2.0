@@ -1,0 +1,29 @@
+<div *ngIf="categories && categories.length; else noCategories">
+  <mat-card appearance="outlined" *ngFor="let c of categories" class="mb-1">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="mb-2">{{c.title}}</mat-card-title>
+      <mat-card-subtitle>{{c.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button class="me-2" mat-raised-button [routerLink]="'/admin/dashboard/update-category/'+c.cid">
+        Edit
+      </button>
+      <button mat-raised-button color="warn" (click)="deleteCategory(c.cid)">
+        Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noCategories>
+  <mat-card appearance="outlined" class="mb-1">
+    <mat-card-content>
+      <h1>No categories found.</h1>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<div class="container text-center mt-2">
+  <a mat-raised-button color="primary" routerLink="/admin/dashboard/add-category">Add New Category</a>
+</div>

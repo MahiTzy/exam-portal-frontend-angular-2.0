@@ -1,0 +1,41 @@
+.content-section {
+  position: relative;
+  overflow: hidden; /* Ensure content stays within the section */
+}
+
+.content-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/img/georgie-cobbs-muOHbrFGEQY-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%); /* Example filter effect */
+  z-index: 1;
+}
+
+.content-section .content {
+  position: relative;
+  z-index: 2;
+  /* Add any other styles needed for the content here */
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}

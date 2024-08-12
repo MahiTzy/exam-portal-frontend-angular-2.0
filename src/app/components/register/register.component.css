@@ -1,0 +1,17 @@
+/* .card{
+  max-width: 600px; */
+  /* background-color: #343a40; */
+/* } */
+/* .container{
+  background-image: url("../../../assets/img/4789129.jpg");
+  background-size: contain;
+} */
+
+@media (max-width: 450px) {
+  .bg-image {
+    display: none;
+  }
+  .card {
+    margin-top: 0!important;
+  }
+}

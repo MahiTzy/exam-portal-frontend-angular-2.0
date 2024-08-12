@@ -1,0 +1,75 @@
+<section class="content-section" id="register">
+  <div class="container">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+    <!-- Background image -->
+
+    <div class="card mx-md-5 shadow-5-strong" style="
+        margin-top: -200px;
+        backdrop-filter: blur(300px);
+        ">
+      <div class="card-body py-5 px-md-5">
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input placeholder="Enter username" [(ngModel)]="user.username" name="username" type="text" id="form3Example1" class="form-control" />
+                  <label class="form-label" for="form3Example1">&nbsp;&nbsp;Username</label>
+                </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div data-mdb-input-init class="form-outline">
+                    <input placeholder="Enter first name" [(ngModel)]="user.firstName" name="firstName" type="text" id="form3Example1" class="form-control" />
+                    <label class="form-label" for="form3Example1">&nbsp;&nbsp;First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <div data-mdb-input-init class="form-outline">
+                    <input placeholder="Enter last name" [(ngModel)]="user.lastName" name="lastName" type="text" id="form3Example2" class="form-control" />
+                    <label class="form-label" for="form3Example2">&nbsp;&nbsp;Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- phone input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input placeholder="Enter contact no." [(ngModel)]="user.phone" name="phone" type="number" id="form3Example4" class="form-control" />
+                <label class="form-label" for="form3Example4">&nbsp;&nbsp;Phone</label>
+              </div>
+
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input placeholder="Enter email address" [(ngModel)]="user.email" name="email" type="email" id="form3Example3" class="form-control" />
+                <label class="form-label" for="form3Example3">&nbsp;&nbsp;Email address</label>
+              </div>
+
+              <!-- Password input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input placeholder="Set your password" [(ngModel)]="user.password" name="password" type="password" id="form3Example4" class="form-control" />
+                <label class="form-label" for="form3Example4">&nbsp;&nbsp;Password</label>
+              </div>
+
+
+
+              <!-- Submit button -->
+              <div class="text-center">
+                <button type="submit" (click)="formSubmit()" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-2">
+                  Sign up
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

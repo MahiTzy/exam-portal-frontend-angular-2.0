@@ -1,0 +1,30 @@
+.content-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.content-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/img/downloads-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* Example blur effect */
+  z-index: 1;
+}
+
+.content-section .container {
+  position: relative;
+  z-index: 2;
+  color: white; /* Ensure content is visible */
+}

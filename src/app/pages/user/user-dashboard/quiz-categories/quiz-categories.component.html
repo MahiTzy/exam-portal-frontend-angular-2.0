@@ -1,0 +1,22 @@
+<div *ngIf="categories && categories.length; else noCategories">
+  <mat-card appearance="outlined" *ngFor="let c of categories" class="mb-1">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{c.title}}</mat-card-title>
+      <mat-card-subtitle>{{c.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" [routerLink]="'/user/dashboard/quizzes/'+c.cid+'/'+c.title">
+        Show Quiz
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noCategories>
+  <mat-card appearance="outlined" class="mb-1">
+    <mat-card-content>
+      <h1>No categories found.</h1>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
