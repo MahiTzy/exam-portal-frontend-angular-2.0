@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  baseUrl: any = 'https://examapp-a2dbfc5f548c.herokuapp.com';
+  baseUrl: any = 'https://examapp-qd5p.onrender.com';
 
   getCurrentUser() {
     return this.http.get(`${this.baseUrl}/current-user`);

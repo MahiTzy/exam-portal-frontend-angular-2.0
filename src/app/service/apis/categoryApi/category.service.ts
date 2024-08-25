@@ -8,7 +8,7 @@ export class CategoryService{
 
   constructor(private http:HttpClient) { }
 
-  baseUrl: any = 'https://examapp-a2dbfc5f548c.herokuapp.com';
+  baseUrl: any = 'https://examapp-qd5p.onrender.com';
 
   getCategories(){
     return this.http.get(`${this.baseUrl}/category/`);

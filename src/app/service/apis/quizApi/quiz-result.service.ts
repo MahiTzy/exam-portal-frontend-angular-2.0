@@ -8,7 +8,7 @@ export class QuizResultService {
 
   constructor(private _http:HttpClient) { }
 
-  baseUrl: any = 'https://examapp-a2dbfc5f548c.herokuapp.com';
+  baseUrl: any = 'https://examapp-qd5p.onrender.com';
 
   public submitQuizResult(quizResult:any){
     return this._http.post(`${this.baseUrl}/quiz-result/submit`,quizResult);

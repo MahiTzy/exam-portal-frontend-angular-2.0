@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class QuizService {
   constructor(private http: HttpClient) {}
 
-  baseUrl: any = 'https://examapp-a2dbfc5f548c.herokuapp.com';
+  baseUrl: any = 'https://examapp-qd5p.onrender.com';
 
   getQuizzes() {
     return this.http.get(`${this.baseUrl}/quiz/`);
