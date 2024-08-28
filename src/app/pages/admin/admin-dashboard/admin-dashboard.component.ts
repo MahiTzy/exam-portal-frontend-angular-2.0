@@ -3,7 +3,7 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,12 +13,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AdminDashboardComponent implements OnInit, OnDestroy {
+export class AdminDashboardComponent
+  implements OnInit, OnDestroy
+{
   private scriptElements: HTMLScriptElement[] = [];
   private styleElements: HTMLLinkElement[] = [];
   title = '';
 
-  constructor(private renderer: Renderer2, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private renderer: Renderer2,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // Load CSS files dynamically
@@ -27,19 +33,15 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
       this.title = routeData ? routeData['title'] : 'Default Title';
     });
 
+    this.loadScripts([
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+      '../../../../assets/js/main.js',
+    ]);
     this.loadStyles([
       'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
       '../../../../assets/css/user/bootstrap-icons/bootstrap-icons.min.css',
-      '../../../../assets/css/user/boxicons/css/boxicons.min.css',
-      '../../../../assets/css/user/remixicon/remixicon.css',
       '../../../../assets/css/user/style.css',
     ]);
-      this.loadScripts([
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
-        '../../../../assets/js/main.js',
-      ]);
-
-    // Load JS files dynamically
   }
 
   loadStyles(sources: string[]): void {

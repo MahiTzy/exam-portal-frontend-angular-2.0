@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class QuizService {
   constructor(private http: HttpClient) {}
 
-  baseUrl: any = 'https://examapp-qd5p.onrender.com';
+  baseUrl: any = environment.baseUrl;
 
   getQuizzes() {
     return this.http.get(`${this.baseUrl}/quiz/`);

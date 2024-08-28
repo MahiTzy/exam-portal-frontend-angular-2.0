@@ -10,7 +10,6 @@ import { LoginService } from '../../../../service/apis/loginApi/login.service';
 })
 export class AdminNavComponent {
   constructor(private loginService: LoginService, private router: Router, private _snack:MatSnackBar) {}
-
   isLoggedIn = false;
   user: any = null;
 
@@ -18,15 +17,7 @@ export class AdminNavComponent {
     this.isLoggedIn = this.loginService.isLoggedIn();
     if (this.isLoggedIn) {
       this.user = this.loginService.getUser();
-      console.log(this.user);
     }
-    // this.loginService.loginStatusSubject.asObservable().subscribe((data) => {
-    //   this.isLoggedIn = this.loginService.isLoggedIn();
-    //   if (this.isLoggedIn) {
-    //     this.user = this.loginService.getUser();
-    //     console.log(this.user);
-    //   }
-    // });
   }
 
   logout() {

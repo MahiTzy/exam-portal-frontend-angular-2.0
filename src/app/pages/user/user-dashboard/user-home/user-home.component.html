@@ -1,55 +1,32 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card card-container">
-        <div class="card-header">
-          <h2>Welcome, {{ studentName }}</h2>
-          <p>{{ todayDate | date:'fullDate' }}</p>
-        </div>
-        <div class="card-body scrollable-section">
-          <h4>Upcoming Deadlines</h4>
-          <ul>
-            <li *ngFor="let deadline of upcomingDeadlines">
-              <span>{{ deadline.name }} - {{ deadline.dueDate | date:'shortDate' }}</span>
-              <div class="progress">
-                <div class="progress-bar" [style.width]="deadline.progress + '%'">{{ deadline.progress }}%</div>
-              </div>
-            </li>
-          </ul>
-        </div>
+<section class="admin-dashboard-home py-3">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col">
+        <h2 class="text-center">Student Dashboard</h2>
+        <p class="text-center text-muted">Your Hub for All Things Exams and Assessments</p>
       </div>
     </div>
 
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card card-container">
-        <div class="card-header">
-          <h4>Recent Activities</h4>
-        </div>
-        <div class="card-body scrollable-section">
-          <ul>
-            <li *ngFor="let activity of recentActivities">
-              <span>{{ activity.description }} - {{ activity.date | date:'short' }}</span>
-            </li>
-          </ul>
+    <div class="row text-center">
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">Attempts Quizzes</h5>
+            <p class="card-text">Access Quizzes to Enhance Your Learning</p>
+            <a href="#!" routerLink="/user/dashboard/all-quizzess" class="btn btn-primary">Go to Quizzes</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 mb-4">
-      <div class="card card-container">
-        <div class="card-header">
-          <h4>Announcements</h4>
-        </div>
-        <div class="card-body scrollable-section">
-          <ul>
-            <li *ngFor="let announcement of announcements">
-              <h5>{{ announcement.title }}</h5>
-              <p>{{ announcement.content }}</p>
-              <small>{{ announcement.date | date:'shortDate' }}</small>
-            </li>
-          </ul>
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">All Submissions</h5>
+            <p class="card-text">Review Your Completed Assignments and Exams</p>
+            <a href="#!" routerLink="/user/dashboard/submissions" class="btn btn-primary">Go to Submissions</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
