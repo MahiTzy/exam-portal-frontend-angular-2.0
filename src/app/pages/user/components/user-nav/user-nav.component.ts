@@ -11,7 +11,7 @@ import { LoginService } from '../../../../service/apis/loginApi/login.service';
 export class UserNavComponent {
 
   constructor(private loginService: LoginService, private router: Router, private _snack:MatSnackBar) {}
-
+  toggle = false;
   isLoggedIn = false;
   user: any = null;
 
@@ -28,6 +28,12 @@ export class UserNavComponent {
     //     console.log(this.user);
     //   }
     // });
+  }
+
+  toggleMenu(e: any) {
+    console.log('toggle');
+    console.log(this.toggle);
+    this.toggle = !this.toggle;
   }
 
   logout() {

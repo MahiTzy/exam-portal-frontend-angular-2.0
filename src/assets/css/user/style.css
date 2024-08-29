@@ -104,7 +104,11 @@ h6 {
 # Override some default Bootstrap stylings
 --------------------------------------------------------------*/
 /* Dropdown menus */
+.profile{
+  margin-top: 50px;
+}
 .dropdown-menu {
+  right: 10px;
   border-radius: 4px;
   padding: 10px 0;
   animation-name: dropdown-animate;
@@ -116,7 +120,7 @@ h6 {
 
 .dropdown-menu .dropdown-header,
 .dropdown-menu .dropdown-footer {
-  text-align: center;
+  text-align: left;
   font-size: 15px;
   padding: 10px 25px;
 }

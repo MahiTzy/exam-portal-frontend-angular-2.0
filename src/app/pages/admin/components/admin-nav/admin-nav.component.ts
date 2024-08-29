@@ -11,6 +11,7 @@ import { LoginService } from '../../../../service/apis/loginApi/login.service';
 export class AdminNavComponent {
   constructor(private loginService: LoginService, private router: Router, private _snack:MatSnackBar) {}
   isLoggedIn = false;
+  toggle = false;
   user: any = null;
 
   ngOnInit(): void {
@@ -18,6 +19,12 @@ export class AdminNavComponent {
     if (this.isLoggedIn) {
       this.user = this.loginService.getUser();
     }
+  }
+
+  toggleMenu(e: any) {
+    console.log('toggle');
+    console.log(this.toggle);
+    this.toggle = !this.toggle;
   }
 
   logout() {
