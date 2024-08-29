@@ -19,7 +19,7 @@ export class UserNavComponent {
     this.isLoggedIn = this.loginService.isLoggedIn();
     if (this.isLoggedIn) {
       this.user = this.loginService.getUser();
-      console.log(this.user);
+      // console.log(this.user);
     }
     // this.loginService.loginStatusSubject.asObservable().subscribe((data) => {
     //   this.isLoggedIn = this.loginService.isLoggedIn();

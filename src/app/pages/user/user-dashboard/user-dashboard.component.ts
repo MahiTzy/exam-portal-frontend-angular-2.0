@@ -24,8 +24,6 @@ export class UserDashboardComponent {
     this.loadStyles([
       'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
       '../../../../assets/css/user/bootstrap-icons/bootstrap-icons.min.css',
-      '../../../../assets/css/user/boxicons/css/boxicons.min.css',
-      '../../../../assets/css/user/remixicon/remixicon.css',
       '../../../../assets/css/user/style.css',
     ]);
 
