@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class QuestionService {
 
   constructor(private http:HttpClient) { }
 
-  baseUrl: any = environment.baseUrl;
+  baseUrl: any = process.env['BASE_URL'];
 
   // get questions by quiz id
   public getQuestionsOfQuiz(qid: any){

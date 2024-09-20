@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  baseUrl: any = environment.baseUrl;
+  baseUrl: any = process.env['BASE_URL'];
 
   getCurrentUser() {
     return this.http.get(`${this.baseUrl}/current-user`);
