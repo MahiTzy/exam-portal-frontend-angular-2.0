@@ -1,27 +1,36 @@
-# ExamCsr
+# Exam Portal 2.0 — Angular Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+An Angular frontend project for an online examination portal.
 
-## Development server
+## Overview
+This repository contains the client application for the Exam Portal 2.0 project. Review the route configuration, components, services, and models for the exact features and user journeys implemented.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technology
+- Angular 17.1.1
+- TypeScript
+- HTML and CSS
+- Node.js and npm
 
-## Code scaffolding
+## Prerequisites
+- Node.js compatible with Angular 17
+- npm
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
+```bash
+git clone https://github.com/MahiTzy/exam-portal-frontend-angular-2.0.git
+cd exam-portal-frontend-angular-2.0
+npm install
+npx ng serve
+```
+Open [http://localhost:4200](http://localhost:4200).
 
-## Build
+## Common Commands
+- `npx ng build` — build the application.
+- `npx ng test` — run configured unit tests.
+- `npx ng generate component component-name` — generate a component.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Configuration
+Review Angular environment files and services for API integration settings. Keep private endpoints and secrets out of source control.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## License
+No license terms are specified here. Refer to the repository's LICENSE file, if present, before reuse.
